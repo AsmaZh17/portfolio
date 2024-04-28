@@ -5,13 +5,37 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
+            <!-- Template Styles Start -->
+            <link rel="stylesheet" href="{{asset('css/loaders/loader.css')}}">
+            <link rel="stylesheet" type="text/css" href="{{asset('css/plugins.css')}}">
+            <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+            <!-- Template Styles End -->
         {% endblock %}
-
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
     <body>
+        <!-- Image Background Layer Start -->
+        <div id="imageBackground" class="image-background" data-speed="0.4"></div>
+        <!-- Image Background Layer End -->
+        {% block loader %}
+            {% include "include/loader.html.twig" %}
+        {% endblock %}
+        {% block header %}
+            {% include "include/header.html.twig" %}
+        {% endblock %}
+        {% block avatar %}
+            {% include "include/block.html.twig" %}
+        {% endblock %}
         {% block body %}{% endblock %}
+        {% block pswp %}
+            {% include "include/pswp.html.twig" %}
+        {% endblock %}
+        <!-- Load Scripts Start -->
+        <script src="{{asset('js/libs.min.js')}}"></script>
+        <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{asset('js/gallery-init.js')}}"></script>
+        <!-- Load Scripts End -->
     </body>
 </html>

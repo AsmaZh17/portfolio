@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Controller!{% endblock %}
+
+{% block body %}
+    <!-- Page Content Start -->
+    <div id="content" class="content">
+      <div class="content__wrapper">
+        {% include "include/home.html.twig" %}
+        {% include "include/portfolio.html.twig" %}
+        {% include "include/about.html.twig" %}
+        {% include "include/resume.html.twig" %}
+        {% include "include/contact.html.twig" %}
+      </div>
+    </div>
+    <!-- Page Content End -->   
+{% endblock %}
